@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { SeasonDisplay } from "./SeasonDisplay";
 
 function App() {
+ 
+  
+ 
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } 
+}
+
+function showPosition(position) {
+console.log("Latitude: " + position.coords.latitude + 
+  "\nLongitude: " + position.coords.longitude);
+}
+  
+getLocation() 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+     season app
+<SeasonDisplay/>
     </div>
   );
 }
